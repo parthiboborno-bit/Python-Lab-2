@@ -1,0 +1,14 @@
+def dimensions(length, width):
+    return{"Length":length, "Width":width}
+
+def display_area(dimensions):
+    print(str(dimensions["Length"] * dimensions["Width"]) + " Square Metres")
+def display_perimeter(dimensions):
+    print(str((dimensions["Length"] + dimensions["Width"]) * 2) + " Metres")
+
+dimensions_1 = dimensions(10, 10)
+dimensions_2 = dimensions(20, 20)
+display_area(dimensions_1)
+display_area(dimensions_2)
+display_perimeter(dimensions_1)
+display_perimeter(dimensions_2)
