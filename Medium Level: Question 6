@@ -1,0 +1,11 @@
+class Teacher:
+    def __init__(self, student, grade):
+        self.shared_data_student = student
+        self.shared_data_grade = grade
+
+class Student(Teacher):
+    def display_data(self):
+        print(f"The Grade of {self.shared_data_student} is {self.shared_data_grade}")
+
+teacher1 = Student(input("Enter Name Of Student:"), input("Enter Grade Of Student:"))
+teacher1.display_data()
