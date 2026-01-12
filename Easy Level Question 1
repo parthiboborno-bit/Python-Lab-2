@@ -1,0 +1,10 @@
+def student(name, grade):
+    return{"Name" : name, "Grade" : grade}
+
+def display_student(student):
+    print("Hi, my name is " + student["Name"] + " and I am in grade " + str(student["Grade"]))
+
+student_1 = student("Parthibo Borno", 12)
+student_2 = student("Aukkhor Zaire Muzahid", 12)
+display_student(student_1)
+display_student(student_2)
