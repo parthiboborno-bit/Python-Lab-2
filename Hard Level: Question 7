@@ -1,0 +1,40 @@
+class Student:
+    def __init__(self, Name, ID):
+        self.Name = Name
+        self.ID = ID
+
+    def __str__(self):
+        return f"ID: {self.ID}, Name: {self.Name}"
+
+class School:
+    def __init__(self):
+        self.Students = []
+
+    def add_Student(self, Name, ID):
+        new_Student = Student(Name, ID)
+        self.Students.append(new_Student)
+        print(f"Student Added: {new_Student}")
+
+    def remove_Student(self, ID):
+        self.Students = [stu for stu in self.Students if stu.ID != ID]
+        print(f"Removed ID: {ID}")
+
+    def display_Students(self):
+        if not self.Students:
+            print("No Students")
+
+        else:
+            print("--- Current Students ---")
+            for stu in self.Students:
+                print(stu)
+                print("-------------")
+
+school_system = School()
+
+school_system.add_Student("A", 1547)
+school_system.add_Student("B", 2385)
+school_system.add_Student("C", 2166)
+
+school_system.remove_Student(1547)
+
+school_system.display_Students()
