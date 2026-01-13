@@ -1,0 +1,51 @@
+class Product:
+    def __init__(self, Name, Price, initial_Quantity):
+        self.__Name = Name
+        self.__Price = 0.0
+        self.__Quantity = 0
+
+        self.add_stock(Name, initial_Quantity)
+        self.set_Price(Price)
+
+    def get_Name(self):
+        return self.__Name
+
+    def get_Quantity(self):
+        return self.__Quantity
+
+    def get_Price(self):
+        return self.__Price
+
+    def set_Price(self, new_Price):
+        if new_Price >= 0:
+            self.__Price = new_Price
+        else:
+            raise ValueError("Price Cannot Be Negative")
+
+    def add_stock(self, Item_Name, Quantity_To_Add):
+        if Quantity_To_Add > 0:
+            self.__Quantity += Quantity_To_Add
+            print(f"Added {Quantity_To_Add} of {Item_Name}. New Quantity: {self.__Quantity}")
+        else:
+            raise ValueError("Quantity Cannot Be Negative")
+
+    def Sell_Stock(self, Quantity_To_Sell ):
+        if 0 < Quantity_To_Sell <= self.__Quantity:
+            self.__Quantity -= Quantity_To_Sell
+            print(f"Sold {Quantity_To_Sell}. Remaining Stock: {self.__Quantity}")
+            return True
+        elif Quantity_To_Sell > self.__Quantity:
+            print(f"Error: Cannot sell {Quantity_To_Sell}. Only {self.__Quantity} available")
+            return False
+        else:
+            print("Error: Quantity to sell must be greater than 0")
+            return False
+
+    def __str__(self):
+        return f"Name: {self.__Name}, Price: {self.__Price}, Quantity: {self.__Quantity}"
+#Example Infnformation Input
+pen = Product("Pen", 0.75, 100)
+print(pen)
+
+pen.Sell_Stock(5)
+print(pen)
