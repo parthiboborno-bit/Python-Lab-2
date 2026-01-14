@@ -1,0 +1,26 @@
+class UserAccount:
+    def __init__(self, Username, Password):
+        self.Username = Username
+        self.__Password = Password
+        print(f"Account Created For User {self.Username}")
+
+    def login(self, Entered_Password):
+        if self.__Password == Entered_Password:
+            print(f"Login Successful For {self.Username}")
+            return True
+        else:
+            print(f"Login Failed For {self.Username}")
+            return False
+
+    def Change_Password(self, Old_Password, New_Password):
+        if self.login(Old_Password):
+            self.Password = New_Password
+            print(f"Password Changed For {self.Username}")
+            return True
+        else:
+            print("Password Unchanged")
+
+new_user = UserAccount("Nafi Hassan", "H4554N")
+
+new_user.login("Nafi Hassan")
+new_user.login("H4554N")
