@@ -1,0 +1,23 @@
+class GameCharacter:
+    def __init__(self, name, health, damage, heal, overall_health):
+        self.name = name
+        self.health = health
+        self.damage = damage
+        self.heal = heal
+        self.overall_health = overall_health
+    def take_damage(self, damage, overall_health):
+        self.health -= damage
+        print(self.health)
+        overall_health = self.overall_health
+        overall_health -= damage
+        print(overall_health)
+    def heal(self, heal):
+        self.health += heal
+        self.health = 0
+        print(self.health)
+    def display_health(self):
+        print(self.health)
+        print(self.name)
+        print(self.damage)
+        print(self.heal)
+        print(self.overall_health)
