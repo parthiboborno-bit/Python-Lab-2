@@ -1,0 +1,47 @@
+class Character:
+    def __init__(self, Name, Health=100, Attack_Power=10):
+        self.Name = Name
+        self.Health = Health
+        self.Attack_Power = Attack_Power
+
+    def Attack(self, Other_Character):
+        Damage = self.Attack_Power
+        Other_Character.Health -= Damage
+        print(f"{self.Name} attacks {Other_Character.Name} for {Damage} damage!")
+        if not Other_Character.Is_Alive:
+            print(f"{Other_Character.Name} has been defeated")
+
+    def Is_Alive(self):
+        return self.Health > 0
+
+    def __str__(self):
+        return f"{self.Name} (Health: {self.Health}, Attack: {self.Attack_Power}) "
+
+    def Main(self):
+        Player = Character("Agent", Health=100, Attack_Power=15)
+        Opponent = Character("Rival", Health=75, Attack_Power=5)
+
+        print("--- Battle Start ---")
+        print(f"{Player} vs {Opponent}")
+
+        while Player.Is_Alive():
+            input("Press Enter To Attack...")
+            Player.Attack(Opponent)
+            if not Opponent.Is_Alive():
+                break
+                print(f"\n{Player} | {Opponent}\n")
+
+                print("--- Battle End ---")
+        if Player.Is_Alive():
+            print(f"{Player.Name} wins!")
+        else:
+            print(f"{Opponent.Name} wins!")
+
+Player_1 = Character("Jack")
+Player_2 = Character("Rival")
+Player_1.Main()
+Player_2.Main()
+Player_1.Is_Alive()
+Player_2.Is_Alive()
+Player_1.Main()
+Player_2.Main()
